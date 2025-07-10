@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-arcadia-orange/10 via-arcadia-white to-arcadia-magenta/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-arcadia-orange/10 via-background to-arcadia-magenta/10 dark:from-arcadia-orange/5 dark:to-arcadia-magenta/5"></div>
       
       {/* Floating Elements */}
       <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-arcadia-orange to-arcadia-magenta rounded-full opacity-20 animate-float"></div>
@@ -15,7 +15,7 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-poppins font-bold text-gray-800 mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-poppins font-bold text-foreground mb-6 leading-tight">
             Construímos{' '}
             <span className="bg-gradient-to-r from-arcadia-orange via-arcadia-magenta to-arcadia-purple bg-clip-text text-transparent">
               experiências digitais
@@ -23,7 +23,7 @@ const HeroSection = () => {
             únicas.
           </h1>
           
-          <p className="text-xl md:text-2xl font-inter text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl font-inter text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
             Somos a Arcadia, uma software house que une criatividade e tecnologia para transformar ideias em soluções digitais.
           </p>
           

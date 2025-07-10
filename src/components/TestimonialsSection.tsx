@@ -46,23 +46,23 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-800 mb-4">
+            <h2 className="text-4xl md:text-5xl font-poppins font-bold text-foreground mb-4">
               O que nossos <span className="bg-gradient-to-r from-arcadia-magenta to-arcadia-purple bg-clip-text text-transparent">clientes</span> dizem
             </h2>
-            <p className="text-xl text-gray-600 font-inter">
+            <p className="text-xl text-muted-foreground font-inter">
               Depoimentos reais de quem confia no nosso trabalho
             </p>
           </div>
 
-          <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 shadow-lg">
+          <div className="relative bg-gradient-to-br from-muted/50 to-card rounded-3xl p-8 md:p-12 shadow-lg">
             <Quote className="h-12 w-12 text-arcadia-orange mb-6 mx-auto" />
             
             <div className="text-center mb-8">
-              <p className="text-lg md:text-xl text-gray-700 font-inter leading-relaxed mb-6 italic">
+              <p className="text-lg md:text-xl text-foreground font-inter leading-relaxed mb-6 italic">
                 "{testimonials[currentTestimonial].content}"
               </p>
               
@@ -73,10 +73,10 @@ const TestimonialsSection = () => {
               </div>
               
               <div className="space-y-1">
-                <h4 className="text-xl font-poppins font-semibold text-gray-800">
+                <h4 className="text-xl font-poppins font-semibold text-foreground">
                   {testimonials[currentTestimonial].name}
                 </h4>
-                <p className="text-gray-600 font-inter">
+                <p className="text-muted-foreground font-inter">
                   {testimonials[currentTestimonial].role}
                 </p>
                 <p className="text-sm text-arcadia-purple font-inter font-medium">
@@ -103,7 +103,7 @@ const TestimonialsSection = () => {
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       index === currentTestimonial 
                         ? 'bg-arcadia-orange' 
-                        : 'bg-gray-300 hover:bg-gray-400'
+                        : 'bg-muted hover:bg-muted/80'
                     }`}
                   />
                 ))}

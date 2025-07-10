@@ -35,16 +35,16 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-br from-muted/50 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-800 mb-6">
+          <h2 className="text-4xl md:text-5xl font-poppins font-bold text-foreground mb-6">
             Nossos{' '}
             <span className="bg-gradient-to-r from-arcadia-orange via-arcadia-magenta to-arcadia-purple bg-clip-text text-transparent">
               Projetos
             </span>
           </h2>
-          <p className="text-xl font-inter text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl font-inter text-muted-foreground max-w-3xl mx-auto">
             Conheça alguns dos projetos que desenvolvemos com paixão e dedicação para nossos clientes.
           </p>
         </div>
@@ -62,13 +62,13 @@ const ProjectsSection = () => {
               </div>
               
               <CardHeader>
-                <CardTitle className="font-poppins text-xl text-gray-800">
+                <CardTitle className="font-poppins text-xl text-foreground">
                   {project.title}
                 </CardTitle>
               </CardHeader>
               
               <CardContent>
-                <p className="text-gray-600 font-inter mb-4">
+                <p className="text-muted-foreground font-inter mb-4">
                   {project.description}
                 </p>
                 
@@ -76,7 +76,7 @@ const ProjectsSection = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span 
                       key={techIndex}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-inter rounded-full"
+                      className="px-3 py-1 bg-muted text-muted-foreground text-sm font-inter rounded-full"
                     >
                       {tech}
                     </span>

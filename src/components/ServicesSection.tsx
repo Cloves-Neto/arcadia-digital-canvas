@@ -72,14 +72,14 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-gray-50 overflow-hidden">
+    <section id="services" className="py-20 bg-muted/30 dark:bg-muted/10 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-800 mb-4">
+            <h2 className="text-4xl md:text-5xl font-poppins font-bold text-foreground mb-4">
               Nossos <span className="bg-gradient-to-r from-arcadia-orange to-arcadia-magenta bg-clip-text text-transparent">Serviços</span>
             </h2>
-            <p className="text-xl text-gray-600 font-inter max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground font-inter max-w-2xl mx-auto">
               Oferecemos soluções completas para transformar sua presença digital
             </p>
           </div>
@@ -118,12 +118,12 @@ const ServicesSection = () => {
                       `}>
                         <service.icon className={`text-white ${isCenter ? 'h-10 w-10' : 'h-8 w-8'}`} />
                       </div>
-                      <CardTitle className={`font-poppins font-semibold text-gray-800 ${isCenter ? 'text-2xl' : 'text-xl'}`}>
+                      <CardTitle className={`font-poppins font-semibold text-foreground ${isCenter ? 'text-2xl' : 'text-xl'}`}>
                         {service.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className={`text-gray-600 font-inter text-center leading-relaxed ${isCenter ? 'text-base' : 'text-sm'}`}>
+                      <CardDescription className={`text-muted-foreground font-inter text-center leading-relaxed ${isCenter ? 'text-base' : 'text-sm'}`}>
                         {service.description}
                       </CardDescription>
                     </CardContent>
@@ -136,7 +136,7 @@ const ServicesSection = () => {
             <Button
               variant="outline"
               size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow-lg z-30"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-card/80 hover:bg-card shadow-lg z-30"
               onClick={prevSlide}
             >
               <ChevronLeft className="h-4 w-4" />
@@ -145,7 +145,7 @@ const ServicesSection = () => {
             <Button
               variant="outline"
               size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow-lg z-30"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-card/80 hover:bg-card shadow-lg z-30"
               onClick={nextSlide}
             >
               <ChevronRight className="h-4 w-4" />
@@ -159,7 +159,7 @@ const ServicesSection = () => {
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentIndex 
                       ? 'bg-gradient-to-r from-arcadia-orange to-arcadia-magenta' 
-                      : 'bg-gray-300 hover:bg-gray-400'
+                      : 'bg-muted hover:bg-muted/80'
                   }`}
                   onClick={() => setCurrentIndex(index)}
                 />

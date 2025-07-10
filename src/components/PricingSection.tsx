@@ -64,16 +64,16 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-800 mb-6">
+          <h2 className="text-4xl md:text-5xl font-poppins font-bold text-foreground mb-6">
             Planos &{' '}
             <span className="bg-gradient-to-r from-arcadia-orange via-arcadia-magenta to-arcadia-purple bg-clip-text text-transparent">
               Preços
             </span>
           </h2>
-          <p className="text-xl font-inter text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl font-inter text-muted-foreground max-w-3xl mx-auto">
             Escolha o plano ideal para transformar sua ideia em realidade digital.
           </p>
         </div>
@@ -113,7 +113,7 @@ const PricingSection = () => {
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <Check className="h-5 w-5 text-arcadia-teal mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700 font-inter text-sm">{feature}</span>
+                      <span className="text-muted-foreground font-inter text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -122,7 +122,7 @@ const PricingSection = () => {
                   className={`w-full ${
                     plan.popular 
                       ? 'bg-arcadia-orange hover:bg-arcadia-magenta' 
-                      : 'bg-gray-800 hover:bg-arcadia-orange'
+                      : 'bg-foreground hover:bg-arcadia-orange'
                   } text-white font-inter font-semibold py-6 text-lg rounded-full transition-all duration-300`}
                 >
                   Escolher Plano
@@ -133,7 +133,7 @@ const PricingSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 font-inter mb-4">
+          <p className="text-muted-foreground font-inter mb-4">
             Precisa de algo personalizado? Vamos conversar!
           </p>
           <Button 
