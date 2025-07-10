@@ -88,28 +88,25 @@ const ProcessSection = () => {
             </p>
           </div>
 
-          {/* Enhanced Interactive Timeline */}
-          <div className="relative mb-16">
-            {/* Animated Timeline Line */}
-            <div className="hidden lg:block absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-arcadia-orange via-arcadia-magenta via-arcadia-purple to-arcadia-teal rounded-full shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-r from-arcadia-orange/50 via-arcadia-magenta/50 via-arcadia-purple/50 to-arcadia-teal/50 rounded-full animate-pulse"></div>
+          {/* Enhanced Interactive Vertical Timeline */}
+          <div className="relative mb-16 max-w-4xl mx-auto">
+            {/* Animated Vertical Timeline Line */}
+            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-arcadia-orange via-arcadia-magenta via-arcadia-purple to-arcadia-teal rounded-full shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-b from-arcadia-orange/50 via-arcadia-magenta/50 via-arcadia-purple/50 to-arcadia-teal/50 rounded-full animate-pulse"></div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+            <div className="space-y-8">
               {steps.map((step, index) => (
                 <div 
                   key={index} 
-                  className="relative group animate-fade-in"
+                  className="relative group animate-fade-in flex items-center"
                   style={{animationDelay: step.delay}}
                 >
-                  {/* Connection Arrow */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden xl:block absolute top-20 -right-3 z-30">
-                      <ArrowRight className="h-6 w-6 text-gray-300 group-hover:text-arcadia-orange transition-all duration-300 transform group-hover:scale-110" />
-                    </div>
-                  )}
+                  {/* Timeline Node */}
+                  <div className={`absolute left-6 top-8 w-4 h-4 bg-gradient-to-br ${step.color} rounded-full shadow-lg group-hover:scale-125 transition-all duration-300 z-20 border-4 border-white`}></div>
                   
-                  <div className={`bg-gradient-to-br ${step.bgColor} backdrop-blur-sm border border-white/50 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 relative overflow-hidden group-hover:border-white/80`}>
+                  {/* Content Card */}
+                  <div className={`ml-20 bg-gradient-to-br ${step.bgColor} backdrop-blur-sm border border-white/50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 relative overflow-hidden group-hover:border-white/80 w-full`}>
                     {/* Animated Background Gradient */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}></div>
                     
