@@ -51,7 +51,7 @@ const ProcessSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-800 mb-4">
               Nosso <span className="bg-gradient-to-r from-arcadia-orange to-arcadia-magenta bg-clip-text text-transparent">Processo</span>
@@ -61,35 +61,39 @@ const ProcessSection = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {steps.map((step, index) => (
-              <div key={index} className="relative group">
-                {/* Connection Line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-16 left-full w-8 h-0.5 bg-gradient-to-r from-arcadia-orange/30 to-arcadia-magenta/30 transform -translate-x-4 z-0"></div>
-                )}
-                
-                <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative z-10">
-                  {/* Step Number */}
-                  <div className="flex items-center mb-4">
-                    <div className="bg-gradient-to-br from-arcadia-orange to-arcadia-magenta rounded-full w-12 h-12 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-poppins font-bold text-lg">{step.number}</span>
+          {/* Horizontal Process Timeline */}
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-arcadia-orange via-arcadia-magenta to-arcadia-purple"></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
+              {steps.map((step, index) => (
+                <div key={index} className="relative group">
+                  <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative z-10">
+                    {/* Step Number */}
+                    <div className="flex items-center justify-center mb-4">
+                      <div className="bg-gradient-to-br from-arcadia-orange to-arcadia-magenta rounded-full w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative z-20">
+                        <span className="text-white font-poppins font-bold text-lg">{step.number}</span>
+                      </div>
                     </div>
-                    <div className="bg-gradient-to-br from-arcadia-purple/10 to-arcadia-teal/10 rounded-full w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <step.icon className="h-6 w-6 text-arcadia-purple" />
+                    
+                    <div className="flex items-center justify-center mb-4">
+                      <div className="bg-gradient-to-br from-arcadia-purple/10 to-arcadia-teal/10 rounded-full w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <step.icon className="h-6 w-6 text-arcadia-purple" />
+                      </div>
                     </div>
+                    
+                    <h3 className="text-lg font-poppins font-semibold text-gray-800 mb-3 text-center">
+                      {step.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 font-inter leading-relaxed text-sm text-center">
+                      {step.description}
+                    </p>
                   </div>
-                  
-                  <h3 className="text-xl font-poppins font-semibold text-gray-800 mb-3">
-                    {step.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 font-inter leading-relaxed">
-                    {step.description}
-                  </p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           <div className="text-center mt-12">
