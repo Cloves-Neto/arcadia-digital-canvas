@@ -98,10 +98,9 @@ const ProcessSection = () => {
         {steps.map((step, index) => (
           <div 
             key={index}
-            className="sticky top-0 h-screen flex items-center justify-center"
+            className="sticky top-0 min-h-screen flex items-center justify-center py-20"
             style={{ 
-              zIndex: 50 - index,
-              background: `linear-gradient(135deg, hsl(var(--background)) 0%, ${index % 2 === 0 ? 'hsl(var(--muted)/50)' : 'hsl(var(--accent)/20)'} 100%)`
+              zIndex: steps.length - index
             }}
           >
             <div className="container mx-auto px-4">
