@@ -109,7 +109,7 @@ const ProcessSection = () => {
                   className="group animate-fade-in"
                   style={{animationDelay: step.delay}}
                 >
-                  <div className={`bg-gradient-to-br ${step.bgColor} backdrop-blur-sm border border-white/50 rounded-3xl p-12 shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-105 relative overflow-hidden group-hover:border-white/80`}>
+                  <div className={`bg-white backdrop-blur-sm border border-white/50 rounded-3xl p-12 shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-105 relative overflow-hidden group-hover:border-white/80`}>
                     {/* Animated Background Gradient */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}></div>
                     
