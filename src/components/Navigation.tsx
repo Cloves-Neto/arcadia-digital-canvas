@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +26,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -33,7 +34,7 @@ const Navigation = () => {
             <div className="bg-gradient-to-r from-arcadia-orange to-arcadia-magenta w-10 h-10 rounded-lg flex items-center justify-center mr-3">
               <span className="text-white font-poppins font-bold text-lg">A</span>
             </div>
-            <span className="text-xl font-poppins font-bold text-gray-800">Arcadia</span>
+            <span className="text-xl font-poppins font-bold text-gray-800 dark:text-white">Arcadia</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -42,11 +43,12 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-arcadia-orange font-inter font-medium transition-colors duration-200"
+                className="text-gray-700 dark:text-gray-300 hover:text-arcadia-orange font-inter font-medium transition-colors duration-200"
               >
                 {item.label}
               </button>
             ))}
+            <ThemeToggle />
             <Button 
               className="bg-arcadia-orange hover:bg-arcadia-magenta text-white font-inter font-medium px-6 py-2 rounded-full transition-all duration-300"
               onClick={() => scrollToSection('#contact')}
@@ -61,7 +63,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700"
+              className="text-gray-700 dark:text-gray-300"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -70,22 +72,25 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t">
+          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left py-2 text-gray-700 hover:text-arcadia-orange font-inter font-medium transition-colors duration-200"
+                className="block w-full text-left py-2 text-gray-700 dark:text-gray-300 hover:text-arcadia-orange font-inter font-medium transition-colors duration-200"
               >
                 {item.label}
               </button>
             ))}
-            <Button 
-              className="w-full mt-4 bg-arcadia-orange hover:bg-arcadia-magenta text-white font-inter font-medium py-2 rounded-full transition-all duration-300"
-              onClick={() => scrollToSection('#contact')}
-            >
-              Fale Conosco
-            </Button>
+            <div className="flex items-center justify-between mt-4">
+              <ThemeToggle />
+              <Button 
+                className="bg-arcadia-orange hover:bg-arcadia-magenta text-white font-inter font-medium py-2 px-6 rounded-full transition-all duration-300"
+                onClick={() => scrollToSection('#contact')}
+              >
+                Fale Conosco
+              </Button>
+            </div>
           </div>
         )}
       </div>
