@@ -1,8 +1,12 @@
 
-import { Palette, Code, Globe, Zap, Settings } from "lucide-react";
+import { Palette, Code, Globe, Zap, Settings, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const ServicesSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const services = [
     {
       icon: Palette,
@@ -41,8 +45,25 @@ const ServicesSection = () => {
     }
   ];
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % services.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
+  };
+
+  const getVisibleServices = () => {
+    const visible = [];
+    for (let i = -1; i <= 1; i++) {
+      const index = (currentIndex + i + services.length) % services.length;
+      visible.push({ ...services[index], position: i });
+    }
+    return visible;
+  };
+
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -54,24 +75,87 @@ const ServicesSection = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className={`${service.bgColor} border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer`}>
-                <CardHeader className="text-center">
-                  <div className={`bg-gradient-to-br ${service.gradient} rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-poppins font-semibold text-gray-800">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 font-inter text-center leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="relative">
+            <div className="flex items-center justify-center gap-8 min-h-[500px]">
+              {getVisibleServices().map((service, index) => {
+                const isCenter = service.position === 0;
+                const isLeft = service.position === -1;
+                const isRight = service.position === 1;
+                
+                return (
+                  <Card 
+                    key={`${currentIndex}-${index}`}
+                    className={`
+                      ${service.bgColor} border-0 shadow-lg transition-all duration-500 cursor-pointer
+                      ${isCenter 
+                        ? 'scale-110 z-20 hover:scale-115 shadow-2xl' 
+                        : 'scale-90 z-10 opacity-70 hover:scale-95 hover:opacity-85'
+                      }
+                      ${isLeft ? 'transform -translate-x-4' : ''}
+                      ${isRight ? 'transform translate-x-4' : ''}
+                      ${isCenter ? 'w-80' : 'w-72'}
+                    `}
+                    onClick={() => {
+                      if (!isCenter) {
+                        if (isLeft) prevSlide();
+                        if (isRight) nextSlide();
+                      }
+                    }}
+                  >
+                    <CardHeader className="text-center">
+                      <div className={`
+                        bg-gradient-to-br ${service.gradient} rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300
+                        ${isCenter ? 'w-20 h-20' : 'w-16 h-16'}
+                      `}>
+                        <service.icon className={`text-white ${isCenter ? 'h-10 w-10' : 'h-8 w-8'}`} />
+                      </div>
+                      <CardTitle className={`font-poppins font-semibold text-gray-800 ${isCenter ? 'text-2xl' : 'text-xl'}`}>
+                        {service.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className={`text-gray-600 font-inter text-center leading-relaxed ${isCenter ? 'text-base' : 'text-sm'}`}>
+                        {service.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+
+            {/* Navigation Buttons */}
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow-lg z-30"
+              onClick={prevSlide}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow-lg z-30"
+              onClick={nextSlide}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-8">
+              {services.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentIndex 
+                      ? 'bg-gradient-to-r from-arcadia-orange to-arcadia-magenta' 
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  onClick={() => setCurrentIndex(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
