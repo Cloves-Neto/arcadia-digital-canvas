@@ -10,6 +10,8 @@ const Navigation = () => {
     { label: "Início", href: "#home" },
     { label: "Sobre", href: "#about" },
     { label: "Serviços", href: "#services" },
+    { label: "Projetos", href: "#projects" },
+    { label: "Preços", href: "#pricing" },
     { label: "Depoimentos", href: "#testimonials" },
     { label: "Contato", href: "#contact" }
   ];
@@ -35,7 +37,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.label}
