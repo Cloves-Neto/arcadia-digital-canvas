@@ -100,7 +100,7 @@ const ProcessSection = () => {
             key={index}
             className="sticky top-0 min-h-screen flex items-center justify-center py-20"
             style={{ 
-              zIndex: steps.length - index
+              zIndex: index + 1
             }}
           >
             <div className="container mx-auto px-4">
