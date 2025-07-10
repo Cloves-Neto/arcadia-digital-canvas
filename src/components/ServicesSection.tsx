@@ -2,7 +2,7 @@
 import { Palette, Code, Globe, Zap, Settings, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ServicesSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -52,6 +52,15 @@ const ServicesSection = () => {
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
   };
+
+  // Auto-play carousel every 8 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const getVisibleServices = () => {
     const visible = [];
