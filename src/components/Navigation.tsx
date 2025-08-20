@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,8 +47,7 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
-            <ThemeToggle />
-            <Button 
+            <Button
               className="bg-arcadia-orange hover:bg-arcadia-magenta text-white font-inter font-medium px-6 py-2 rounded-full transition-all duration-300"
               onClick={() => scrollToSection('#contact')}
             >
@@ -83,8 +81,7 @@ const Navigation = () => {
               </button>
             ))}
             <div className="flex items-center justify-between mt-4">
-              <ThemeToggle />
-              <Button 
+              <Button
                 className="bg-arcadia-orange hover:bg-arcadia-magenta text-white font-inter font-medium py-2 px-6 rounded-full transition-all duration-300"
                 onClick={() => scrollToSection('#contact')}
               >
