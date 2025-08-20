@@ -11,11 +11,6 @@ const BackgroundStarsPattern = ({
   const containerRef = useRef(null);
   const starsRef = useRef([]);
 
-  const starColors = [
-    'text-orange-400', 'text-pink-400', 'text-purple-400',
-    'text-teal-400', 'text-blue-400', 'text-yellow-400'
-  ];
-
   const orbGradients = [
     "from-teal-500 to-blue-500",
     "from-orange-500 to-pink-500",
@@ -23,23 +18,6 @@ const BackgroundStarsPattern = ({
     "from-yellow-400 to-orange-500",
     "from-indigo-500 to-purple-500"
   ];
-
-  // Generate stars
-  const generateStars = () => {
-    return Array.from({ length: starCount }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 3 + 1,
-      color: starColors[Math.floor(Math.random() * starColors.length)],
-      animationDelay: Math.random() * 5,
-      animationDuration: 3 + Math.random() * 4
-    }));
-  };
-
-  useEffect(() => {
-    starsRef.current = generateStars();
-  }, [starCount]);
 
   useEffect(() => {
     if (!enableMouseGradient) return;
@@ -81,25 +59,6 @@ const BackgroundStarsPattern = ({
           />
         )} */}
 
-        {/* Stars */}
-        {starsRef.current.map((star) => (
-          <div
-            key={star.id}
-            className={`absolute ${star.color} animate-pulse`}
-            style={{
-              left: `${star.x}%`,
-              top: `${star.y}%`,
-              animationDelay: `${star.animationDelay}s`,
-              animationDuration: `${star.animationDuration}s`
-            }}
-          >
-            <Star
-              className="animate-twinkle"
-              size={star.size * 4}
-              fill="currentColor"
-            />
-          </div>
-        ))}
 
         {/* Floating Orbs */}
         {[...Array(orbCount)].map((_, i) => (
