@@ -25,7 +25,7 @@ export const AboutSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 bg-transparent overflow-hidden">
+    <section ref={sectionRef} className="pt-20 bg-transparent md:pt-44">
       <AboutParticles />
 
       <div className="relative z-10 container mx-auto px-6 max-w-7xl">

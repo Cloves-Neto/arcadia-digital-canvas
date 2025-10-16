@@ -1,6 +1,5 @@
 // src/components/About/About.Content.tsx
 import { CheckCircle, ArrowRight } from "lucide-react";
-import { stats, highlights } from "@/components/About/data/about.data";
 
 interface ContentProps {
   isVisible: boolean;
@@ -21,19 +20,33 @@ export const AboutContent = ({ isVisible }: ContentProps) => (
               <CheckCircle className="h-6 w-6 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-white">
-              Do Front-end ao Back-end: Soluções Completas
+              Credibilidade Digital que Seu Negócio Merece. Eficiência que Você Precisa.
             </h3>
           </div>
           <div className="space-y-6 text-gray-300 leading-relaxed">
             <p>
-              Na nossa empresa, acreditamos que cada linha de código conta uma história.
-              Trabalhamos com tecnologias modernas e metodologias ágeis para transformar
-              suas ideias em realidade digital.
+              Na nossa empresa, vamos além da criação de sites:
+              construímos experiências digitais completas. Entregamos aos
+              nossos clientes mais do que um simples site, sistema ou aplicativo;
+              oferecemos soluções que conferem credibilidade, qualidade e
+              eficiência ao negócio, marcando uma presença digital forte e autêntica.
             </p>
             <p>
-              Nossa equipe multidisciplinar combina expertise técnica com sensibilidade
-              criativa, garantindo que cada projeto seja único, impactante e verdadeiramente
-              personalizado para o seu negócio.
+              Trabalhamos tanto no desenvolvimento sob medida (do zero), atendendo
+               às necessidades específicas de projetos complexos, quanto oferecendo
+                soluções prontas e eficientes para pequenos negócios. Estas
+                soluções visam não apenas destacar a presença digital, mas também
+                 otimizar a gestão interna da empresa, desde sistemas simples de
+                 gerenciamento até ferramentas mais complexas. Temos soluções
+                 digitais para todo tipo de negócio.
+            </p>
+            <p>
+              Acreditamos que cada linha de código conta uma história.
+              Trabalhamos com tecnologias modernas e metodologias ágeis para
+              transformar suas ideias em realidade digital. Nossa equipe
+              multidisciplinar combina expertise técnica com sensibilidade
+              criativa, garantindo que cada projeto seja único, impactante e
+              verdadeiramente personalizado para o seu negócio.
             </p>
             <div className="flex items-center text-orange-400 font-medium">
               <ArrowRight className="w-4 h-4 mr-2" />
@@ -49,27 +62,7 @@ export const AboutContent = ({ isVisible }: ContentProps) => (
       isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
     }`}>
       <div className="grid gap-6">
-        {stats.map((stat, index) => (
-          <div
-            key={index}
-            className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:scale-105 transition-all duration-300"
-            style={{ transitionDelay: `${index * 100}ms` }}
-          >
-            <div className="flex items-center space-x-4">
-              <div className={`bg-gradient-to-r ${highlights[index % highlights.length].gradient} rounded-full p-3 group-hover:scale-110 transition-transform`}>
-                <stat.icon className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white">
-                  {stat.number}
-                </div>
-                <div className="text-gray-400 font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+        <img className="w-full h-[600px]" src="/arcadia-sobre.svg" alt="logo da arcadia com arco representando a criatividade" />
       </div>
     </div>
   </div>
